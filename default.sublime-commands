@@ -18,5 +18,9 @@
 	{
 		"caption": "CmdV Ninja: Create Snippet from Clipboard",
 		"command": "createsnip"
+	},
+	{
+		"caption": "CmdV Ninja: Search content and tags",
+		"command": "search"
 	}
 ]
