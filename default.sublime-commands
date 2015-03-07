@@ -1,0 +1,22 @@
+[
+	{
+		"caption": "CmdV Ninja: Search My Snippets",
+		"command": "mysnippets"
+	},
+	{
+		"caption": "CmdV Ninja: Search My Collections",
+		"command": "mycollections"
+	},
+	{
+		"caption": "CmdV Ninja: Search another user's snippets",
+		"command": "givenusersnippets"
+	},
+	{
+		"caption": "CmdV Ninja: Search another user's collection",
+		"command": "givenusercollection"
+	},
+	{
+		"caption": "CmdV Ninja: Create Snippet from Clipboard",
+		"command": "createsnip"
+	}
+]
