@@ -80,11 +80,24 @@ class MysnippetsCommand(sublime_plugin.TextCommand):
 			sublime.error_message("Incorrect username or password")
 
 	def snippet_menu(self):
-		snippet_titles = []
-		self.snippet_collection = requests.get('http://localhost:3000/api/users/{0}/snippets'.format(self.token)).json()
+		# snippet_titles = []
+		# self.snippet_collection = requests.get('http://localhost:3000/api/users/{0}/snippets'.format(self.token)).json()
+		# for snippet in self.snippet_collection:
+		# 	snippet_titles.append(snippet['unique_handle'])
+		# self.view.window().show_quick_panel(snippet_titles, self.copy_to_clipboard)
+		self.view.window().show_input_panel("Snippet", "", self.done, self.fuzzy_search, None)
+		
+	def done(self, value):
+		print self.snippet_collection[value]
+			
+
+	def fuzzy_search(self, value):
+		self.snippet_titles = []
+		self.snippet_collection = requests.get('http://localhost:3000/api/search?type=subl&limit=100&query={0}'.format(value)).json()
 		for snippet in self.snippet_collection:
-			snippet_titles.append(snippet['unique_handle'])
-		self.view.window().show_quick_panel(snippet_titles, self.copy_to_clipboard)
+			self.snippet_titles.append(snippet['unique_handle'])
+		self.view.window().show_quick_panel(self.snippet_titles, self.copy_to_clipboard)
+		# self.view.window().show_input_panel("Snippet", value, self.done, self.fuzzy_search, None)
 
 	def copy_to_clipboard(self, value):
 		if value > -1:
