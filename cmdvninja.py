@@ -12,16 +12,66 @@ import tempfile
 import traceback
 import threading
 import shutil
+import subprocess
 
 TEST_API = r"http://localhost:3000/users"
 
 STUFF = "Hello, World!"
 
+class AuthCommand(sublime_plugin.WindowCommand):
+	def run(self):
+		self.username = ""
+		self.password = ""
+		self.get_username()
+
+	def get_username(self):
+		self.window.show_input_panel("Username:", "", self.set_username, None, None)
+
+	def set_username(self, value):
+		self.username = value
+		self.get_password()
+
+	def get_password(self):
+		self.window.show_input_panel("Password:", "", self.set_password, None, None)
+
+	def set_password(self, value):
+		self.password = value
+		self.log_token()
+
+	def log_token(self):
+ 		# This is doing an API call that verifies that accuracy of the username
+ 		auth = json.dumps({'username': self.username, 'password': self.password})
+ 		user_token = requests.get('http://localhost:3000/api/auth', data=auth)
+ 		if user_token.status_code == 200:
+			self.cmdv_ninja.set({ "token": user_token['id'], "base_uri": "http://localhost:3000/"}) # Not sure this will work since it's not self.settings, but let's see
+			sublime.save_settings('cmdvninja.sublime-settings')
+			token_json = user_token.json()
+			self.token = token_json['id'] # Try combinding this with the line above later
+			self.token = "working"
+			return self.token
+		else:
+			sublime.error_message("Incorrect username or password")
+			return None
+		print 'Auth Command Complete'
+
 class ExampleCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		self.edit = edit
-		self.collection = requests.get('http://localhost:3000/api/snippets').json()
-		print self.collection
+		self.window = self.view.window()
+		self.settings = sublime.load_settings('cmdvninja.sublime-settings')
+		self.cmdv_ninja = self.settings.get("accounts").get("cmdv_ninja")
+		# self.token = "54f9e8e2e537f8cc40e63265" # Reserved to test if the primary user
+		self.token = self.cmdv_ninja.get("token")
+		self.token = ""
+		self.url = self.cmdv_ninja.get("base_uri")
+		if self.token == "":
+			sublime.set_timeout(self.window.run_command('auth'),50)
+			self.complete()
+		else:
+			print "Has token already"
+
+	def complete(self):
+		print 'Example Command Complete'
+
 
 class ShowCommand(sublime_plugin.TextCommand):
 
