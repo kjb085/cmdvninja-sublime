@@ -23,6 +23,8 @@ class AuthCommand(sublime_plugin.WindowCommand):
 		self.email = ""
 		self.password = ""
 		self.get_email()
+		self.settings = sublime.load_settings('cmdvninja.sublime-settings')
+		self.cmdv_ninja = sublime.load_settings('cmdvninja.sublime-settings').get("accounts").get("cmdv_ninja")
 
 	def get_email(self):
 		self.window.show_input_panel("email:", "", self.set_email, None, None)
@@ -40,17 +42,14 @@ class AuthCommand(sublime_plugin.WindowCommand):
 
 	def log_token(self):
  		# This is doing an API call that verifies that accuracy of the email
- 		print self.email
- 		print self.password
- 		auth = json.dumps({'email': self.email, 'password': self.password})
- 		user_token = requests.get('http://localhost:3000/login', data=auth)
- 		if user_token.status_code == 200:
-			self.cmdv_ninja.set({ "token": user_token['_id'], "base_uri": "http://localhost:3000/"}) # Not sure this will work since it's not self.settings, but let's see
+ 		auth = {'email': self.email, 'password': self.password}
+ 		response = requests.post('http://localhost:3000/login', data=auth)
+ 		if response.status_code == 200:
+ 			user = response.json()
+			self.settings.set( "accounts", { "cmdv_ninja": { "token": user['_id'], "base_uri": "http://localhost:3000/"}}) # Not sure this will work since it's not self.settings, but let's see
 			sublime.save_settings('cmdvninja.sublime-settings')
-			token_json = user_token.json()
-			self.token = token_json['id'] # Try combinding this with the line above later
+			self.token = user['_id'] # Try combinding this with the line above later
 			sublime.message_dialog("Successfully logged in!")
-			# self.token = "working"
 			# return self.token
 			print self.token
 		else:
