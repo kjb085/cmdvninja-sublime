@@ -20,15 +20,15 @@ STUFF = "Hello, World!"
 
 class AuthCommand(sublime_plugin.WindowCommand):
 	def run(self):
-		self.username = ""
+		self.email = ""
 		self.password = ""
-		self.get_username()
+		self.get_email()
 
-	def get_username(self):
-		self.window.show_input_panel("Username:", "", self.set_username, None, None)
+	def get_email(self):
+		self.window.show_input_panel("email:", "", self.set_email, None, None)
 
-	def set_username(self, value):
-		self.username = value
+	def set_email(self, value):
+		self.email = value
 		self.get_password()
 
 	def get_password(self):
@@ -39,19 +39,22 @@ class AuthCommand(sublime_plugin.WindowCommand):
 		self.log_token()
 
 	def log_token(self):
- 		# This is doing an API call that verifies that accuracy of the username
- 		auth = json.dumps({'username': self.username, 'password': self.password})
- 		user_token = requests.get('http://localhost:3000/api/auth', data=auth)
+ 		# This is doing an API call that verifies that accuracy of the email
+ 		print self.email
+ 		print self.password
+ 		auth = json.dumps({'email': self.email, 'password': self.password})
+ 		user_token = requests.get('http://localhost:3000/login', data=auth)
  		if user_token.status_code == 200:
-			self.cmdv_ninja.set({ "token": user_token['id'], "base_uri": "http://localhost:3000/"}) # Not sure this will work since it's not self.settings, but let's see
+			self.cmdv_ninja.set({ "token": user_token['_id'], "base_uri": "http://localhost:3000/"}) # Not sure this will work since it's not self.settings, but let's see
 			sublime.save_settings('cmdvninja.sublime-settings')
 			token_json = user_token.json()
 			self.token = token_json['id'] # Try combinding this with the line above later
-			self.token = "working"
-			return self.token
+			sublime.message_dialog("Successfully logged in!")
+			# self.token = "working"
+			# return self.token
+			print self.token
 		else:
-			sublime.error_message("Incorrect username or password")
-			return None
+			sublime.error_message("Incorrect email or password")
 		print 'Auth Command Complete'
 
 class ExampleCommand(sublime_plugin.TextCommand):
