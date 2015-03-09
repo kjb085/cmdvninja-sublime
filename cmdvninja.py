@@ -157,8 +157,8 @@ class CreatesnipCommand(sublime_plugin.TextCommand):
 		self.create_new_snippet()
 
 	def create_new_snippet(self):
-		new_snippet = {"user": self.token, "content": self.new_snippet, "unique_handle": self.unique_handle}
-		response = requests.post('http://localhost:3000/api/snippets', data=new_snippet )
+		new_snippet = {"user": self.token, "content": self.new_snippet, "unique_handle": self.unique_handle, "group": "54fd06dc365422f72471319d"}
+		response = requests.post('http://localhost:3000/api/groups/54fd06dc365422f72471319d/snippets', data=new_snippet )
 		if response.status_code == 200: 
 			sublime.message_dialog("{0} successfully saved to CmdV Ninja!".format(self.unique_handle))
 		else:
