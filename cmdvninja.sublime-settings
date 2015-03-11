@@ -1,18 +1,9 @@
 {
 	"accounts": {
 		"cmdv_ninja": {
-			"base_uri": "", //Whatever we make our main route
-			"token": "" // Default username passed by the owner
+			"token": "" // Token passed by the owner
 		}
 	},
-	
-	// Not sure if we need any or all of this (probably need to rename)
-
-  "gist_list_format": "%(filename)s: %(description)s",
-  // If true, display the list of gists in a monospace font
-  "gist_list_monospace": false,
-  // Highlight the line the cursor is on in GitHub, even if the line is not selected
-  "always_highlight_current_line": false,
   // output debug info to the console
   "debug": false
 }
