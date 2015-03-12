@@ -12,17 +12,17 @@
             "children":
             [
             {
-              "caption": "Mmm Code",
+              "caption": "CmdV Ninja",
               "children":
               [
               {
                     "command": "open_file",
-                    "args": {"file": "${packages}/CodeBag/codebag.sublime-settings" },
+                    "args": {"file": "${packages}/cmdvninja-sublime/cmdvninja-sublime.sublime-settings" },
                     "caption": "Settings - Default"
               },
               {
                     "command": "open_file",
-                    "args": {"file": "${packages}/User/codebag.sublime-settings" },
+                    "args": {"file": "${packages}/User/cmdvninja-sublime.sublime-settings" },
                     "caption": "Settings - User"
               }
             ]
