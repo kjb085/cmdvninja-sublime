@@ -1,26 +1,22 @@
 [
 	{
-		"caption": "CmdV Ninja: Search My Snippets",
-		"command": "mysnippets"
+		"caption": "CmdV Ninja: Go to Our Website",
+		"command": "openapp"
 	},
 	{
-		"caption": "CmdV Ninja: Search My Collections",
-		"command": "mycollections"
+		"caption": "CmdV Ninja: Search a Group",
+		"command": "searchgroups"
 	},
 	{
-		"caption": "CmdV Ninja: Search another user's snippets",
-		"command": "givenusersnippets"
-	},
-	{
-		"caption": "CmdV Ninja: Search another user's collection",
-		"command": "givenusercollection"
-	},
-	{
-		"caption": "CmdV Ninja: Create Snippet from Clipboard",
+		"caption": "CmdV Ninja: Create a Snippet from Current Selection",
 		"command": "createsnip"
 	},
 	{
-		"caption": "CmdV Ninja: Search content and tags",
-		"command": "search"
+		"caption": "CmdV Ninja: Query a Group",
+		"command": "mygroups"
+	},
+	{
+		"caption": "CmdV Ninja: Logout",
+		"command": "logout"
 	}
 ]
