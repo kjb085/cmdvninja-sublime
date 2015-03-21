@@ -1,0 +1,6 @@
+[
+	{ "keys": ["super+shift+n"], "command": "openapp" },
+	{ "keys": ["super+shift+n"], "command": "mygroups" },
+	{ "keys": ["super+shift+n"], "command": "searchgroups" },
+	{ "keys": ["super+shift+n"], "command": "createsnip" }
+]
