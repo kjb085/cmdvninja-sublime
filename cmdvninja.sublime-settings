@@ -1,9 +1,43 @@
 {
-	"accounts": {
-		"cmdv_ninja": {
-			"token": "" // Token passed by the owner
-		}
+	"token": "", // Token passed by the owner
+	"folder_1": {
+		"name": "", 
+		"id": ""
 	},
-  // output debug info to the console
-  "debug": false
+	"folder_2": {
+		"name": "", 
+		"id": ""
+	},
+	"folder_3": {
+		"name": "", 
+		"id": ""
+	},
+	"folder_4": {
+		"name": "", 
+		"id": ""
+	},
+	"folder_5": {
+		"name": "", 
+		"id": ""
+	},
+	"folder_6": {
+		"name": "", 
+		"id": ""
+	},
+	"folder_7": {
+		"name": "", 
+		"id": ""
+	},
+	"folder_8": {
+		"name": "", 
+		"id": ""
+	},
+	"folder_9": {
+		"name": "", 
+		"id": ""
+	},
+	"folder_0": {
+		"name": "", 
+		"id": ""
+	}
 }
