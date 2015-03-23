@@ -4,7 +4,7 @@ import urllib
 import json
 import webbrowser
 
-# Add a way to clear default folder
+# Add a way to clear default folders
 # Add global search command
 # Fix group based searching once there is a route to search individual groups (as of now this does the above no matter what group is selected)
 # Clean up code by learning how to syncronously nest commands
