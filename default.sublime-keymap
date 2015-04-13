@@ -1,0 +1,16 @@
+[
+	// { "keys": ["super+shift+n"], "command": "openapp" },
+	// { "keys": ["super+shift+n"], "command": "mygroups" },
+	// { "keys": ["super+shift+n"], "command": "searchgroups" },
+	// { "keys": ["super+shift+n"], "command": "createsnip" },
+	{ "keys": ["super+1"], "command": "folderone" },
+	{ "keys": ["super+2"], "command": "foldertwo" },
+	{ "keys": ["super+3"], "command": "folderthree" },
+	{ "keys": ["super+4"], "command": "folderfour" },
+	{ "keys": ["super+5"], "command": "folderfive" },
+	{ "keys": ["super+6"], "command": "foldersix" },
+	{ "keys": ["super+7"], "command": "folderseven" },
+	{ "keys": ["super+8"], "command": "foldereight" },
+	{ "keys": ["super+9"], "command": "foldernine" },
+	{ "keys": ["super+0"], "command": "folderzero" }
+]

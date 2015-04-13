@@ -18,5 +18,45 @@
 	{
 		"caption": "CmdV Ninja: Logout",
 		"command": "logout"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 1st Folder",
+		"command": "folderone"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 2nd Folder",
+		"command": "foldertwo"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 3rd Folder",
+		"command": "folderthree"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 4th Folder",
+		"command": "folderfour"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 5th Folder",
+		"command": "folderfive"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 6th Folder",
+		"command": "foldersix"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 7th Folder",
+		"command": "folderseven"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 8th Folder",
+		"command": "foldereight"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 9th Folder",
+		"command": "foldernine"
+	},
+	{
+		"caption": "CmdV Ninja: Quick Access 10th Folder",
+		"command": "folderzero"
 	}
 ]
